@@ -7,7 +7,6 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
-
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp();
   print('Handling a background message ${message.messageId}');
@@ -33,22 +32,21 @@ const AndroidNotificationChannel channel = AndroidNotificationChannel(
 );
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-FlutterLocalNotificationsPlugin();
+    FlutterLocalNotificationsPlugin();
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   await flutterLocalNotificationsPlugin
       .resolvePlatformSpecificImplementation<
-      AndroidFlutterLocalNotificationsPlugin>()
+          AndroidFlutterLocalNotificationsPlugin>()
       ?.createNotificationChannel(channel);
   runApp(MyApp());
-
 }
-class MyApp extends StatefulWidget {
 
+class MyApp extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
 }
@@ -60,12 +58,12 @@ class _MyAppState extends State<MyApp> {
   String token;
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
     var initialzationSettingsAndroid =
-    AndroidInitializationSettings('@mipmap/ic_launcher');
+        AndroidInitializationSettings('@mipmap/ic_launcher');
     var initializationSettings =
-    InitializationSettings(android: initialzationSettingsAndroid);
+        InitializationSettings(android: initialzationSettingsAndroid);
 
     flutterLocalNotificationsPlugin.initialize(initializationSettings);
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
@@ -87,20 +85,16 @@ class _MyAppState extends State<MyApp> {
       }
     });
     getToken();
-
-
-
   }
+
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
         home: Scaffold(
-          appBar: AppBar(
+      appBar: AppBar(
         title: Text('Notification'),
       ),
       body: Center(
-
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -114,6 +108,7 @@ class _MyAppState extends State<MyApp> {
       // This trailing comma makes auto-formatting nicer for build methods.
     ));
   }
+
   getToken() async {
     token = await FirebaseMessaging.instance.getToken();
     setState(() {
@@ -122,5 +117,4 @@ class _MyAppState extends State<MyApp> {
     final DatabaseReference _database = FirebaseDatabase().reference();
     _database.child('fcm-token/${token}').set({"token": token});
   }
-
 }
