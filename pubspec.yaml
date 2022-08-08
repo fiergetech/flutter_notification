@@ -1,4 +1,4 @@
-name: notification_test
+name: flutter_notification
 description: A new Flutter application.
 
 # The following line prevents the package from being accidentally published to
@@ -27,7 +27,17 @@ dependencies:
   firebase_database: ^6.1.0
   firebase_messaging: ^12.0.1
   flutter_local_notifications: ^5.0.0+4
-
+  firebase_auth: ^3.6.0
+  cloud_firestore: ^3.4.1
+  firebase_storage: ^10.3.4
+  uuid: ^3.0.6
+  fluttertoast: ^8.0.9
+  flutter_staggered_grid_view: ^0.6.1
+  transparent_image: ^2.0.0
+  image_picker: ^0.8.5+3
+  image_cropper: ^2.0.3
+  image_downloader: ^0.31.0
+  intl: ^0.17.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -47,6 +57,22 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  assets:
+    - images/
+
+  fonts:
+    - family: Bebas
+      fonts:
+        - asset: assets/fonts/BebasNeue-Regular.ttf
+    - family: Lobster
+      fonts:
+        - asset: assets/fonts/Lobster-Regular.ttf
+    - family: Signatra
+      fonts:
+        - asset: assets/fonts/Signatra.ttf
+    - family: Varela
+      fonts:
+        - asset: assets/fonts/VarelaRound-Regular.ttf
 
   # To add assets to your application, add an assets section, like this:
   # assets:
