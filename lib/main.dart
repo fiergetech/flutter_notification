@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_notification/log_in/login_screen.dart';
 
+import 'button_navbar/button_navbar.dart';
 import 'control_page/control_screen.dart';
 import 'log_in/login_screen.dart';
 
@@ -96,7 +97,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Smart Home App",
-      home: SwitchPage(),
+      home: BottomNavBar(),
     );
   }
 

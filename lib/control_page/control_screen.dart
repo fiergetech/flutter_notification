@@ -67,9 +67,6 @@ class _SwitchPageState extends State<SwitchPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          appBar: AppBar(
-            title: Text('Device Center'),
-          ),
           backgroundColor: Colors.white,
           body: Column(
             children: <Widget>[
@@ -77,7 +74,7 @@ class _SwitchPageState extends State<SwitchPage> {
                   onPressed: () async {
                     await getStatus();
                   },
-                  child: Text('TEST STATUS')),
+                  child: Text('KONTROL LAMPU')),
               FlatButton(
                   onPressed: () {
                     LedOn();
