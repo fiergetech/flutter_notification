@@ -18,7 +18,7 @@ class TextFieldContainer extends StatelessWidget {
               end: Alignment.centerRight,
               colors: [
                 Colors.white,
-                Colors.orangeAccent,
+                Color(0xffff99cc),
               ]),
           borderRadius: BorderRadius.circular(12),
           boxShadow: const [
@@ -26,13 +26,13 @@ class TextFieldContainer extends StatelessWidget {
               offset: Offset(-2, -2),
               spreadRadius: 1,
               blurRadius: 4,
-              color: Colors.red,
+              color: Colors.blue,
             ),
             BoxShadow(
               offset: Offset(2, 2),
               spreadRadius: 1,
               blurRadius: 4,
-              color: Colors.redAccent,
+              color: Color(0xffff99cc),
             ),
           ]),
       child: child,

@@ -18,13 +18,13 @@ class Credentials extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Center(
+          /*Center(
             child: CircleAvatar(
               radius: 80,
               backgroundImage: const AssetImage("images/avatar.png"),
               backgroundColor: Colors.orange.shade800,
             ),
-          ),
+          ),*/
           const SizedBox(
             height: 15.0,
           ),

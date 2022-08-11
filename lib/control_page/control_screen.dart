@@ -9,8 +9,11 @@ class SwitchPage extends StatefulWidget {
   _SwitchPageState createState() => _SwitchPageState();
 }
 
-class _SwitchPageState extends State<SwitchPage> {
+class _SwitchPageState extends State<SwitchPage>
+    with SingleTickerProviderStateMixin {
   final DBref = FirebaseDatabase.instance.reference();
+  AnimationController _controller;
+  double _scale;
 
   bool isSwitched;
   bool newVal;
@@ -59,42 +62,111 @@ class _SwitchPageState extends State<SwitchPage> {
 
   @override
   void initState() {
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(
+        milliseconds: 500,
+      ),
+      lowerBound: 0.0,
+      upperBound: 0.1,
+    )..addListener(() {
+        setState(() {});
+      });
     getStatus();
     super.initState();
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-          backgroundColor: Colors.white,
-          body: Column(
-            children: <Widget>[
-              FlatButton(
-                  onPressed: () async {
-                    await getStatus();
-                  },
-                  child: Text('KONTROL LAMPU')),
-              FlatButton(
-                  onPressed: () {
-                    LedOn();
-                    print('ON');
-                  },
-                  child: Text('LED ON')),
-              FlatButton(
-                  onPressed: () {
-                    LedOFF();
-                    print('OFF');
-                  },
-                  child: Text('LED OFF')),
-              Switch(
-                value: isSwitched,
-                onChanged: (value) async {
-                  await _handleSwitch(value);
-                },
+    _scale = 1 - _controller.value;
+
+    return Scaffold(
+      body: Column(
+        children: <Widget>[
+          Text(
+            'Tekan untuk kontrol lampu',
+            style: TextStyle(color: Colors.grey[400], fontSize: 20.0),
+          ),
+          SizedBox(
+            height: 20.0,
+          ),
+          Center(
+            child: GestureDetector(
+              onTapDown: _tapDown,
+              onTapUp: _tapUp,
+              child: Transform.scale(
+                scale: _scale,
+                child: _animatedButton(),
               ),
+            ),
+          ),
+          FlatButton(
+              onPressed: () {
+                LedOn();
+                print('ON');
+              },
+              child: Text('LED ON')),
+          FlatButton(
+              onPressed: () {
+                LedOFF();
+                print('OFF');
+              },
+              child: Text('LED OFF')),
+          Switch(
+            value: isSwitched,
+            onChanged: (value) async {
+              await _handleSwitch(value);
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _animatedButton() {
+    return Container(
+      height: 70,
+      width: 200,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(100.0),
+          boxShadow: [
+            BoxShadow(
+              color: Color(0x80000000),
+              blurRadius: 12.0,
+              offset: Offset(0.0, 5.0),
+            ),
+          ],
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color(0xff33ccff),
+              Color(0xffff99cc),
             ],
           )),
+      child: Center(
+        child: Text(
+          'Press',
+          style: TextStyle(
+              fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.black),
+        ),
+      ),
     );
+  }
+
+  void _tapDown(TapDownDetails details) {
+    _controller.forward();
+    LedOn();
+  }
+
+  void _tapUp(TapUpDetails details) {
+    _controller.reverse();
+    LedOFF();
   }
 }

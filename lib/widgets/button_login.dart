@@ -31,21 +31,21 @@ class ButtonLogin extends StatelessWidget {
                   begin: Alignment.centerLeft,
                   end: Alignment.centerRight,
                   colors: [
-                    Colors.redAccent,
-                    Colors.red,
+                    Colors.blue,
+                    Colors.blueAccent,
                   ]),
               boxShadow: const [
                 BoxShadow(
                   offset: Offset(3, 3),
                   spreadRadius: 1,
                   blurRadius: 4,
-                  color: Colors.red,
+                  color: Color(0xffff99cc),
                 ),
                 BoxShadow(
                   offset: Offset(-5, -5),
                   spreadRadius: 1,
                   blurRadius: 4,
-                  color: Colors.redAccent,
+                  color: Colors.blue,
                 ),
               ]),
           child: Center(
