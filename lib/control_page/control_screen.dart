@@ -19,23 +19,21 @@ class _SwitchPageState extends State<SwitchPage>
   bool newVal;
 
   void LedOn() async {
-    await DBref.child("LED_FLUTTER")
-        //.child("Device1")
-        //.child("LED_STATUS")
-        .update({'DATA': 'TRUE'});
+    await DBref.update({'LED_FLUTTER': 'TRUE'});
+    //.child("Device1")
+    //.child("LED_STATUS")
   }
 
   void LedOFF() async {
-    await DBref.child("LED_FLUTTER")
-        //.child("Device1")
-        //.child("LED_STATUS")
-        .update({'DATA': 'FALSE'});
+    await DBref.update({'LED_FLUTTER': 'FALSE'});
+    //.child("Device1")
+    //.child("LED_STATUS")
   }
 
   void getStatus() async {
     String newValue = (await FirebaseDatabase.instance
             .reference()
-            .child("LED_FLUTTER/DATA")
+            .child("LED_FLUTTER")
             .once())
         .value;
     print(isSwitched);
@@ -106,18 +104,6 @@ class _SwitchPageState extends State<SwitchPage>
               ),
             ),
           ),
-          FlatButton(
-              onPressed: () {
-                LedOn();
-                print('ON');
-              },
-              child: Text('LED ON')),
-          FlatButton(
-              onPressed: () {
-                LedOFF();
-                print('OFF');
-              },
-              child: Text('LED OFF')),
           Switch(
             value: isSwitched,
             onChanged: (value) async {
@@ -152,7 +138,7 @@ class _SwitchPageState extends State<SwitchPage>
           )),
       child: Center(
         child: Text(
-          'Press',
+          'Slide Kanan',
           style: TextStyle(
               fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.black),
         ),
