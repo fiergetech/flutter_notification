@@ -87,9 +87,12 @@ class _SwitchPageState extends State<SwitchPage>
     return Scaffold(
       body: Column(
         children: <Widget>[
+          SizedBox(
+            height: 20.0,
+          ),
           Text(
             'Tekan untuk kontrol lampu',
-            style: TextStyle(color: Colors.grey[400], fontSize: 20.0),
+            style: TextStyle(color: Colors.black, fontSize: 20.0),
           ),
           SizedBox(
             height: 20.0,
@@ -97,10 +100,23 @@ class _SwitchPageState extends State<SwitchPage>
           Center(
             child: GestureDetector(
               onTapDown: _tapDown,
-              onTapUp: _tapUp,
+              //onTapUp: _tapUp,
               child: Transform.scale(
                 scale: _scale,
                 child: _animatedButton(),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 20.0,
+          ),
+          Center(
+            child: GestureDetector(
+              //onTapDown: _tapDown,
+              onTapUp: _tapUp,
+              child: Transform.scale(
+                scale: _scale,
+                child: _animatedButton2(),
               ),
             ),
           ),
@@ -132,13 +148,44 @@ class _SwitchPageState extends State<SwitchPage>
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              Color(0xff33ccff),
-              Color(0xffff99cc),
+              Color.fromARGB(255, 2, 210, 113),
+              Color.fromARGB(255, 153, 255, 253),
             ],
           )),
       child: Center(
         child: Text(
-          'Slide Kanan',
+          'Nyalakan Lampu',
+          style: TextStyle(
+              fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.black),
+        ),
+      ),
+    );
+  }
+
+  Widget _animatedButton2() {
+    return Container(
+      height: 70,
+      width: 200,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(100.0),
+          boxShadow: [
+            BoxShadow(
+              color: Color(0x80000000),
+              blurRadius: 12.0,
+              offset: Offset(0.0, 5.0),
+            ),
+          ],
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color.fromARGB(255, 255, 51, 51),
+              Color.fromARGB(255, 255, 153, 179),
+            ],
+          )),
+      child: Center(
+        child: Text(
+          'Matikan Lampu',
           style: TextStyle(
               fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.black),
         ),
