@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_notification/control_page/control_screen.dart';
 import 'package:flutter_notification/log_in/login_screen.dart';
 
+import '../device_page/device_page.dart';
+
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({Key key}) : super(key: key);
 
@@ -18,7 +20,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
     switch (_index) {
       case 0:
-        child = SwitchPage();
+        child = HomePage();
         break;
 
       case 1:

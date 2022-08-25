@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class SwitchPage extends StatefulWidget {
   static const String id = 'switch_screen';
@@ -194,12 +195,12 @@ class _SwitchPageState extends State<SwitchPage>
   }
 
   void _tapDown(TapDownDetails details) {
-    _controller.forward();
+    // _controller.forward();
     LedOn();
   }
 
   void _tapUp(TapUpDetails details) {
-    _controller.reverse();
+    // _controller.reverse();
     LedOFF();
   }
 }
