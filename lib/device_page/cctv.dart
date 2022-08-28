@@ -9,7 +9,7 @@ class CctvPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: new WebView(
-        initialUrl: "http://192.168.43.238",
+        initialUrl: "http://192.168.100.9",
         javascriptMode: JavascriptMode.unrestricted,
       ),
     );

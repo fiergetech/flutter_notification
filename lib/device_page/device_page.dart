@@ -106,7 +106,7 @@ class _HomePageState extends State<HomePage>
             height: 20.0,
           ),
           Center(
-            child: RaisedButton(
+            child: ElevatedButton(
               child: Transform.scale(
                 scale: _scale,
                 child: _animatedButton(),
@@ -120,10 +120,10 @@ class _HomePageState extends State<HomePage>
             height: 20.0,
           ),
           Center(
-            child: RaisedButton(
+            child: ElevatedButton(
               child: Transform.scale(
                 scale: _scale,
-                child: _animatedButton(),
+                child: _animatedButton2(),
               ),
               onPressed: () {
                 _nextscreen2(context);
