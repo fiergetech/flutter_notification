@@ -62,7 +62,7 @@ class _ExampleState extends State<ExampleScreen> {
                                   fontSize: 20),
                             ),
                             Text(
-                              'Jl. AM Sangaji No.9, Gajahan',
+                              'Jl. AM Sangaji No.09, Gajahan',
                               style: TextStyle(
                                   fontSize: 14,
                                   color: Colors.white,
