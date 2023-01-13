@@ -45,7 +45,7 @@ class _ExampleState extends State<ExampleScreen> {
                         CircleAvatar(
                           radius: 32,
                           backgroundImage: NetworkImage(
-                              'https://i.pinimg.com/originals/78/07/03/78070395106fcd1c3e66e3b3810568bb.jpg'),
+                              'https://img-ap-1.trovit.com/img1id/1L1-1ns1CHM1u/1L1-1ns1CHM1u.1_11.jpg'),
                         ),
                         SizedBox(
                           width: 16,
@@ -55,14 +55,14 @@ class _ExampleState extends State<ExampleScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
-                              'Rumah Gajahan 09',
+                              'Rumah Ceria',
                               style: TextStyle(
                                   fontFamily: "Montserrat Medium",
                                   color: Colors.white,
                                   fontSize: 20),
                             ),
                             Text(
-                              '4101410141',
+                              'Jl. AM Sangaji No.9, Gajahan',
                               style: TextStyle(
                                   fontSize: 14,
                                   color: Colors.white,
@@ -123,12 +123,12 @@ class _ExampleState extends State<ExampleScreen> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              SvgPicture.network(
-                                'https://image.flaticon.com/icons/svg/1904/1904527.svg',
+                              Image.network(
+                                'https://cdn1.iconfinder.com/data/icons/cyber-security-color/48/digital_lock-512.png',
                                 height: 128,
                               ),
                               Text(
-                                'Attendance Recap',
+                                'Pintu Ruang Tengah',
                                 style: cardTextStyle,
                               )
                             ],
@@ -141,12 +141,12 @@ class _ExampleState extends State<ExampleScreen> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              SvgPicture.network(
-                                'https://image.flaticon.com/icons/svg/1904/1904437.svg',
+                              Image.network(
+                                'https://cdn1.iconfinder.com/data/icons/internet-of-things-filled/64/Radiator-512.png',
                                 height: 128,
                               ),
                               Text(
-                                'Study Result',
+                                'Pagar Rumah',
                                 style: cardTextStyle,
                               )
                             ],
@@ -159,12 +159,12 @@ class _ExampleState extends State<ExampleScreen> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              SvgPicture.network(
-                                'https://image.flaticon.com/icons/svg/1904/1904235.svg',
+                              Image.network(
+                                'https://cdn1.iconfinder.com/data/icons/internet-of-things-filled/64/Faucet-512.png',
                                 height: 128,
                               ),
                               Text(
-                                'Course Booking',
+                                'Meteran Air',
                                 style: cardTextStyle,
                               )
                             ],
@@ -177,12 +177,12 @@ class _ExampleState extends State<ExampleScreen> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              SvgPicture.network(
-                                'https://image.flaticon.com/icons/svg/1904/1904221.svg',
+                              Image.network(
+                                'https://cdn1.iconfinder.com/data/icons/internet-of-things-filled/64/Sockets-512.png',
                                 height: 128,
                               ),
                               Text(
-                                'Course Plan',
+                                'Stopkontak Atas',
                                 style: cardTextStyle,
                               )
                             ],
