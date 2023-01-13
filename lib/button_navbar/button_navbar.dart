@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_notification/control_page/control_screen.dart';
+import 'package:flutter_notification/device_page/example.dart';
+import 'package:flutter_notification/device_page/tools_page.dart';
 import 'package:flutter_notification/log_in/login_screen.dart';
 
 import '../device_page/device_page.dart';
@@ -20,7 +22,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
     switch (_index) {
       case 0:
-        child = HomePage();
+        child = ExampleScreen();
         break;
 
       case 1:
@@ -29,7 +31,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
     }
 
     return Scaffold(
-      appBar: AppBar(),
+      //appBar: AppBar(),
       bottomNavigationBar: _bottomTab(),
       body: SizedBox.expand(child: child),
     );
