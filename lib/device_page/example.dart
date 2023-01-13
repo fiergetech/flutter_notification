@@ -55,7 +55,7 @@ class _ExampleState extends State<ExampleScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
-                              'John Richardo',
+                              'Rumah Gajahan 09',
                               style: TextStyle(
                                   fontFamily: "Montserrat Medium",
                                   color: Colors.white,
